@@ -16,7 +16,6 @@ import ReqLog from './middlewares/reqLog';
 import Redis from './service/redis';
 import ScheduleService from './service/schedulerService';
 import ErrorHandler from './middlewares/errorHandler';
-import ImgMetaLoad from './service/imgMetaLoad';
 
 const app = new Koa();
 
@@ -56,9 +55,9 @@ mongoose.connect(config.db.mongo, { useNewUrlParser: true, useUnifiedTopology: t
 Redis.init();
 
 //加载图片元数据
-ImgMetaLoad.load();
+
 // 定时器
-//ScheduleService.start();
+ScheduleService.start();
 
 // listening
 if (config.protocol === 'http') {

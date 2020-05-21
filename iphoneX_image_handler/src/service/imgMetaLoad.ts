@@ -12,7 +12,6 @@ export default class ImgMetaLoad {
                 //console.log(`${filename} 已经存在`);
                 return;
             }
-            console.log(filename);
             await ImgModel.insertMany({ name: filename });
         });
     }
